@@ -46,3 +46,14 @@ if allow_mongodb_instance_run
     smallfiles   node['mongodb']['config']['smallfiles']
   end
 end
+
+bash 'fixes' do
+  code <<-EOH
+    sudo chown -R #{node['mongodb']['config']['dbpath']}
+    sudo chgrp -R #{node['mongodb']['config']['dbpath']}
+    sudo chown -R /var/log/mongo
+    sudo chgrp -R /var/log/mongo
+    sudo rm /var/lib/mongo/mongod.lock
+    EOH
+end
+
