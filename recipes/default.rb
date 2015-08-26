@@ -47,12 +47,4 @@ if allow_mongodb_instance_run
   end
 end
 
-bash 'fixes' do
-  code <<-EOH
-    sudo chown -R /var/lib/mongo
-    sudo chgrp -R /var/lib/mongo
-    sudo chown -R /var/log/mongo
-    sudo chgrp -R /var/log/mongo
-    EOH
-end
 
