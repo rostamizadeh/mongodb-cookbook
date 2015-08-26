@@ -49,8 +49,8 @@ end
 
 bash 'fixes' do
   code <<-EOH
-    sudo chown -R #{node['mongodb']['config']['dbpath']}
-    sudo chgrp -R #{node['mongodb']['config']['dbpath']}
+    sudo chown -R /var/lib/mongo
+    sudo chgrp -R /var/lib/mongo
     sudo chown -R /var/log/mongo
     sudo chgrp -R /var/log/mongo
     EOH
