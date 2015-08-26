@@ -32,6 +32,6 @@ script
     . <%= @sysconfig_file %>;
   fi
   if [ "x$ENABLE_MONGOD" = "xyes" ]; then
-  exec start-stop-daemon --start --quiet --chuid $DAEMON_USER --exec $NUMACTL $DAEMON $DAEMON_OPTS
+  exec start-stop-daemon --start --quiet --chuid $DAEMON_USER --exec $NUMACTL $DAEMON -- $DAEMON_OPTS
   fi
 end script
